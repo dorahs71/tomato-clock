@@ -36,7 +36,7 @@ function App() {
       </section>
       <div
         className={`w-2/5 h-full text-grey-100 fixed z-10 flex flex-col left-[50px] py-20 px-10 bg-green-100 shadow-[0px_0px_10px_rgba(0,0,0,50%)] ${
-          showList ? '' : 'translate-x-[-500px]'
+          showList ? '' : 'translate-x-[-100%]'
         } duration-300 ease-in-out`}
       >
         <div className="flex items-center font-ch justify-between">
@@ -73,8 +73,8 @@ function App() {
         </div>
       </div>
       <section
-        className={`px-32 pt-12 h-screen text-grey-100 overflow-hidden duration-300 ease-in-out ${
-          showList ? 'translate-x-[550px]' : ''
+        className={`px-32 pt-20 h-screen flex flex-col justify-between text-grey-100 overflow-hidden duration-300 ease-in-out ${
+          showList ? 'translate-x-[50%]' : ''
         } `}
       >
         <div className="flex items-center">
@@ -113,7 +113,7 @@ function App() {
             </div>
           </div>
         </div>
-        <div className="mt-8">
+        <div>
           <img src={tomatoOrange} alt="tomato" />
         </div>
       </section>
