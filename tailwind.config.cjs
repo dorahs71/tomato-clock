@@ -17,6 +17,11 @@ module.exports = {
       en: ['Fjalla One'],
       ch: ['Noto Sans TC'],
     },
+    screens: {
+      default: '1280px',
+      lg: '1440px',
+      xl: '1560px',
+    },
     extend: {},
   },
   plugins: [],

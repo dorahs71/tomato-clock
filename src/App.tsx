@@ -74,20 +74,22 @@ function App() {
       </div>
       <section
         className={`px-32 pt-20 h-screen flex flex-col justify-between text-grey-100 overflow-hidden duration-300 ease-in-out ${
-          showList ? 'translate-x-[50%]' : ''
+          showList
+            ? 'translate-x-[50%] lg:translate-x-[55%] xl:translate-x-[65%]'
+            : ''
         } `}
       >
         <div className="flex items-center">
           <div className="flex flex-col font-en text-[200px] gap-2">
             <div>25:00</div>
             <div className="flex items-center justify-center gap-4 mt-[-20px]">
-              <button className="border w-12 h-12 flex items-center justify-center rounded-full p-1 hover:shadow-sm hover:shadow-grey-100">
+              <button className="border w-12 h-12 flex items-center justify-center rounded-full p-1 hover:shadow-md hover:shadow-green-300">
                 <img src={bell} alt="bell" />
               </button>
-              <button className="bg-grey-100 w-16 h-16 flex items-center justify-center rounded-full hover:shadow-sm hover:shadow-grey-100">
+              <button className="bg-grey-100 w-16 h-16 flex items-center justify-center rounded-full hover:shadow-md hover:shadow-grey-300">
                 <img src={playOrange} alt="play" />
               </button>
-              <button className="border w-12 h-12 rounded-full flex items-center justify-center p-1 hover:shadow-sm hover:shadow-grey-100">
+              <button className="border w-12 h-12 rounded-full flex items-center justify-center p-1 hover:shadow-md hover:shadow-grey-300">
                 <img src={cancel} alt="cancel" />
               </button>
             </div>
