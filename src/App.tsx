@@ -4,6 +4,8 @@ import tomatoOrange from './assets/tomato--orange.svg';
 import analysis from './assets/icon-analysis.svg';
 import list from './assets/icon-list.svg';
 import bell from './assets/icon-bell.svg';
+import pauseGreen from './assets/icon-pause--green.svg';
+import pauseOrange from './assets/icon-pause--orange.svg';
 import playGreen from './assets/icon-play--green.svg';
 import playOrange from './assets/icon-play--orange.svg';
 import cancel from './assets/icon-cancel.svg';
@@ -13,6 +15,8 @@ import remove from './assets/icon-delete.svg';
 function App() {
   const [showList, setShowList] = useState(false);
   const [showAnalysis, setShowAnalysis] = useState(false);
+  const [rest, setRest] = useState(false);
+  const [pause, setPause] = useState(false);
 
   const handleShowList = () => {
     setShowList((prev) => !prev);
@@ -202,42 +206,59 @@ function App() {
       >
         <div className="flex items-center">
           <div className="flex flex-col font-en text-[200px] gap-2">
-            <div>25:00</div>
+            <div>{rest ? '05:00' : '25:00'}</div>
             <div className="flex items-center justify-center gap-4 mt-[-20px]">
               <button className="border w-12 h-12 flex items-center justify-center rounded-full p-1 hover:shadow-md hover:shadow-green-300">
                 <img src={bell} alt="bell" />
               </button>
-              <button className="bg-grey-100 w-16 h-16 flex items-center justify-center rounded-full hover:shadow-md hover:shadow-grey-300">
-                <img src={playOrange} alt="play" />
+              <button
+                className="bg-grey-100 w-16 h-16 flex items-center justify-center rounded-full hover:shadow-md hover:shadow-grey-300"
+                onClick={() => setPause((prev) => !prev)}
+              >
+                {pause ? (
+                  <img src={rest ? pauseGreen : pauseOrange} alt="pause" />
+                ) : (
+                  <img src={rest ? playGreen : playOrange} alt="play" />
+                )}
               </button>
-              <button className="border w-12 h-12 rounded-full flex items-center justify-center p-1 hover:shadow-md hover:shadow-grey-300">
+              <button
+                className="border w-12 h-12 rounded-full flex items-center justify-center p-1 hover:shadow-md hover:shadow-grey-300"
+                onClick={() => setRest((prev) => !prev)}
+              >
                 <img src={cancel} alt="cancel" />
               </button>
             </div>
           </div>
-          <div className="flex flex-col font-ch text-grey-100 ml-28">
-            <div className="flex items-center gap-2">
-              <div className="border-2 w-10 h-10 font-medium rounded-full" />
-              <div className="text-3xl font-bold">構思番茄鐘 UI 介面</div>
+          {!rest ? (
+            <div className="flex flex-col font-ch text-grey-100 ml-28">
+              <div className="flex items-center gap-2">
+                <div className="border-2 w-10 h-10 font-medium rounded-full" />
+                <div className="text-3xl font-bold">構思番茄鐘 UI 介面</div>
+              </div>
+              <div className="flex flex-col mt-10 ml-2 gap-6">
+                <div className="flex items-center gap-2">
+                  <div className="border-2 w-6 h-6 rounded-full" />
+                  <div>學習 Javascript</div>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="border-2 w-6 h-6 rounded-full" />
+                  <div>學習網頁切版</div>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="border-2 w-6 h-6 rounded-full" />
+                  <div>設計番茄鐘 UI 介面</div>
+                </div>
+              </div>
             </div>
-            <div className="flex flex-col mt-10 ml-2 gap-6">
-              <div className="flex items-center gap-2">
-                <div className="border-2 w-6 h-6 rounded-full" />
-                <div>學習 Javascript</div>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="border-2 w-6 h-6 rounded-full" />
-                <div>學習網頁切版</div>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="border-2 w-6 h-6 rounded-full" />
-                <div>設計番茄鐘 UI 介面</div>
-              </div>
+          ) : (
+            <div className="flex flex-col mt-[-2rem] font-ch gap-6 ml-28">
+              <div className="text-7xl font-bold">休息，</div>
+              <div className="text-4xl font-bold">是為了下一次的努力。</div>
             </div>
-          </div>
+          )}
         </div>
         <div>
-          <img src={tomatoOrange} alt="tomato" />
+          <img src={rest ? tomatoGreen : tomatoOrange} alt="tomato" />
         </div>
       </section>
     </div>
